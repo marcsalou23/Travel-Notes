@@ -1,0 +1,100 @@
+/* Estilo para las notas */
+.note-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 10px;
+  margin-top: 2rem;
+}
+
+.note {
+  width: calc(50% - 5px);
+  background-color: #f2f2f2;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 0.3rem;
+  display: grid;
+  grid-template-rows: auto auto auto;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s;
+  box-shadow: 0px 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.note:hover {
+  transform: translateY(-3px);
+}
+
+h2 {
+  font-size: 18px;
+  margin-top: 0;
+  color: #333;
+}
+
+header {
+  display: grid;
+  align-items: center;
+  gap: 5px;
+  margin-bottom: 0.3rem;
+}
+
+header > p {
+  font-size: 14px;
+  color: #555;
+  margin: 0;
+}
+
+time {
+  font-size: 12px;
+  color: #777;
+  align-self: center;
+}
+
+.contenido p:nth-child(1) {
+  color: #1b4f72;
+  margin: 0;
+  font-weight: bold;
+}
+
+.contenido p:nth-child(2) {
+  margin: 0;
+}
+
+.foot-note {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  background-color: #1b4f72;
+  border: none;
+  padding: 4px;
+  text-align: center;
+  text-decoration: none;
+  font-size: 12px;
+  color: white;
+  cursor: pointer;
+  border-radius: 0 0 5px 5px;
+  transition: background-color 0.3s;
+}
+
+.foot-note:hover {
+  background-color: #154267;
+}
+
+.back-button {
+  text-align: center;
+  margin-top: 2rem;
+}
+
+
+.back-button > a {
+  background-color: #1b4f72;
+  padding: 6px 12px;
+  text-decoration: none;
+  color: white;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+.back-button > a:hover {
+  background-color: #154267;
+}
