@@ -1,3 +1,4 @@
+//import './NoteSearch.css';
 import useNotes from '../../hooks/useNotes';
 import Note from '../../components/Note/Note';
 import { NavLink } from 'react-router-dom';
