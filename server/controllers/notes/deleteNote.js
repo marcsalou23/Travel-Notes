@@ -1,18 +1,19 @@
-const deleteNoteQuery = require('../../db/queries/notes/deleteNoteQuery');
+const deleteNoteQuery = require("../../db/queries/notes/deleteNoteQuery");
 
 const deleteNote = async (req, res, next) => {
-    try {
-        const { noteId } = req.params;
+  try {
+    const { noteId } = req.params;
 
-        await deleteNoteQuery(noteId, req.user.id);
+    // Llama a la función de consulta para eliminar la nota de la base de datos.
+    await deleteNoteQuery(noteId, req.user.id);
 
-        res.send({
-            status: 'Success',
-            message: 'Nota eliminada',
-        });
-    } catch (err) {
-        next(err);
-    }
+    res.send({
+      status: "Success",
+      message: "Nota eliminada",
+    });
+  } catch (err) {
+    next(err);
+  }
 };
 
 module.exports = deleteNote;

@@ -1,59 +1,58 @@
-import React from 'react';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 import useAuth from '../../hooks/useAuth';
 import './HomePage.css';
 
 const HomePage = () => {
+    const navigate = useNavigate();
     const { token, logout, user } = useAuth();
+
+    const handleLogout = () => {
+        logout();
+        navigate.push('/login');
+    };
 
     return (
         <div className='home-page'>
             <h1>Bienvenido a TravelNotes</h1>
-            <p>
-                ¡Descubre los lugares más increíbles para viajar y guarda tus
-                notas de viaje en TravelNotes!
-            </p>
+            <h2>¡Descubre los lugares más increíbles para viajar!</h2>
             <nav className='buttons'>
-                {user && <p>Bienvenidx @{user.username}</p>}
+                {user && <h3>"Bienvenido {user.username}"</h3>}
                 {!token && (
                     <>
-                        <div
-                            className='button-login'
-                            onClick={() => (window.location.href = '/login')}
-                        >
-                            <div className='clickable-button'>
-                                <NavLink to='/login'>Login</NavLink>
-                            </div>
+                        <div className='button-login'>
+                            <NavLink className='clickable-button' to='/login'>
+                                Login
+                            </NavLink>
                         </div>
-                        <div
-                            className='button-register'
-                            onClick={() => (window.location.href = '/register')}
-                        >
-                            <div className='clickable-button'>
-                                <NavLink to='/register'>Registro</NavLink>
-                            </div>
+                        <div className='button-register'>
+                            <NavLink
+                                className='clickable-button'
+                                to='/register'
+                            >
+                                Registro
+                            </NavLink>
                         </div>
                     </>
                 )}
                 {token && (
                     <>
-                        <div
-                            className='button-message clickable-button'
-                            onClick={() => (window.location.href = '/message')}
-                        >
-                            <NavLink to='/message'>Añadir Nueva Nota</NavLink>
+                        <div className='button-message'>
+                            <NavLink className='clickable-button' to='/message'>
+                                Nueva Nota
+                            </NavLink>
                         </div>
-                        <div
-                            className='button-close clickable-button'
-                            onClick={logout}
-                        >
-                            <p>Cerrar sesión</p>
+                        <div className='button-notes'>
+                            <NavLink className='clickable-button' to='/notes'>
+                                Ver Notas
+                            </NavLink>
                         </div>
-                        <div
-                            className='button-notes clickable-button'
-                            onClick={() => (window.location.href = '/notes')}
-                        >
-                            <NavLink to='/notes'>Ver Notas</NavLink>
+                        <div className='button-logout'>
+                            <NavLink
+                                className='clickable-button'
+                                onClick={handleLogout}
+                            >
+                                Cerrar Sesión
+                            </NavLink>
                         </div>
                     </>
                 )}

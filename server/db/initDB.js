@@ -16,6 +16,7 @@ const main = async () => {
         await connection.query('USE notes');
         console.log('Creando tablas...');
 
+        // Tablas de usuarios
         await connection.query(`
           CREATE TABLE IF NOT EXISTS users (
             id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -26,6 +27,7 @@ const main = async () => {
           )
         `);
 
+        // Tablas de notas.
         await connection.query(`
           CREATE TABLE IF NOT EXISTS notes (
             id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -41,6 +43,7 @@ const main = async () => {
           )
         `);
 
+        // Tablas de categorías.
         await connection.query(`
           CREATE TABLE IF NOT EXISTS categories (
             id INT UNSIGNED PRIMARY KEY AUTO_INCREMENT,
@@ -51,6 +54,7 @@ const main = async () => {
 
         console.log('Tablas creadas con exito');
 
+        // Agregar categorias predeterminadas.
         const categories = [
             { name: 'Cultura y Patrimonio', createdAt: new Date() },
             { name: 'Naturaleza y Paisajes', createdAt: new Date() },

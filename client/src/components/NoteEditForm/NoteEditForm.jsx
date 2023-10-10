@@ -1,6 +1,5 @@
 import PropTypes from 'prop-types';
 import { NavLink } from 'react-router-dom';
-import './Note.css';
 
 const getCategoryName = (categoryId) => {
   const categoryMapping = {
@@ -16,11 +15,9 @@ const getCategoryName = (categoryId) => {
   return categoryMapping[categoryId] || 'Unknown Category';
 };
 
-const Note = ({ note, onDelete }) => {
+const NoteEditForm = ({ note, onDelete }) => {
   const handleDelete = () => {
-    if (confirm('Deseas eliminar esta nota?')) {
-      onDelete(note.id);
-    }
+    onDelete(note.id);
   };
 
   return (
@@ -28,6 +25,7 @@ const Note = ({ note, onDelete }) => {
       <header>
         <p>@{note.username}</p>
         <time>
+          Fecha y hora:{' '}
           {new Date(note.createdAt).toLocaleDateString('es-ES', {
             hour: '2-digit',
             minute: '2-digit',
@@ -38,9 +36,9 @@ const Note = ({ note, onDelete }) => {
         </time>
       </header>
       <div className='contenido'>
-        <p>{note.title}</p>
-        <p>{note.text}</p>
-        <p>{getCategoryName(note.categoryId)}</p>
+        <p>Titulo:{note.title}</p>
+        <p>Texto:{note.text}</p>
+        <p>Categoria:{getCategoryName(note.categoryId)}</p>
       </div>
       <div className='foot-note'>
         <NavLink to={`/notes/${note.id}/edit`} className='edit-link'>
@@ -54,7 +52,7 @@ const Note = ({ note, onDelete }) => {
   );
 };
 
-Note.propTypes = {
+NoteEditForm.propTypes = {
   note: PropTypes.shape({
     id: PropTypes.number.isRequired,
     username: PropTypes.string.isRequired,
@@ -66,4 +64,4 @@ Note.propTypes = {
   onDelete: PropTypes.func.isRequired,
 };
 
-export default Note;
+export default NoteEditForm;

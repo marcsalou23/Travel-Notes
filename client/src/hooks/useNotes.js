@@ -42,8 +42,35 @@ const useNotes = () => {
     }
   }, [searchParams, token]);
 
-  return { notes, searchParams, setSearchParams, errorMsg, loading };
+  const deleteNote = async (noteId) => {
+    try {
+      const res = await fetch(`http://localhost:8000/notes/${noteId}`, {
+        method: 'DELETE',
+        headers: {
+          Authorization: token,
+          'Content-Type': 'application/json',
+        },
+      });
+
+      if (!res.ok) {
+        throw new Error('Error deleting note');
+      }
+
+      // Update the notes list after deletion
+      setNotes((prevNotes) => prevNotes.filter((note) => note.id !== noteId));
+    } catch (err) {
+      console.error('Error deleting note:', err);
+    }
+  };
+
+  return {
+    notes,
+    searchParams,
+    setSearchParams,
+    errorMsg,
+    loading,
+    deleteNote,
+  };
 };
 
 export default useNotes;
-
