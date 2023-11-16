@@ -2,7 +2,7 @@
 
 Travel Notes es una aplicación web que permite a los usuarios compartir sus experiencias de viaje, recomendaciones y conocimientos con otros viajeros de todo el mundo. Es una plataforma diseñada para que los viajeros documenten sus travesías, proporcionen consejos de viaje valiosos y se conecten con una comunidad de exploradores con intereses similares.
 
-![web](https://s5.gifyu.com/images/SRNAb.md.gif)
+![web](https://s5.gifyu.com/images/SRNAb.gif)
 
 ## Características
 
