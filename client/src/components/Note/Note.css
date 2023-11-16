@@ -10,6 +10,11 @@ body {
   background-repeat: no-repeat;
   background-color: transparent;
   min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  /* Center content horizontally */
+  align-items: center;
+  /* Center content vertically */
 }
 
 .note-container {
@@ -34,8 +39,8 @@ body {
 }
 
 .button {
-  margin-top: 290px;
-  margin-left: 25px;
+  margin-top: 20px;
+  /* Adjusted margin */
   padding: 14px;
   background-color: #8b7355;
   border: none;
