@@ -23,7 +23,7 @@ Travel Notes tiene como objetivo capturar la esencia del viaje a través de narr
 ## Configuración Inicial
 1. Clona este repositorio en tu máquina local:
    ```bash
-   git clone https://github.com/tu-usuario/tu-repositorio.git
+   git clone https://github.com/marcsalou23/Conversor-de-Coordenadas-Geograficas.git
    ```
 
 2. Navega al directorio del proyecto:
